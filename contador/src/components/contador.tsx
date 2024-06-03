@@ -1,14 +1,14 @@
 'use client'
 import React from "react";
-import { restarQuery, sumarQuery, traerNumerosQuery } from "@/query/contador"
+import { useRestarQuery, useSumarQuery, traerNumerosQuery } from "@/query/contador"
 import { useQuery } from "@tanstack/react-query"
 import { incrementarNumero } from "@/servicio/contador";
 
 export function Contador() {
     const numero = useQuery(traerNumerosQuery).data?.numero ?? 0;
 
-    const {mutate: mutarSuma} = sumarQuery()
-    const {mutate: mutarResta} = restarQuery() 
+    const {mutate: mutarSuma} = useSumarQuery()
+    const {mutate: mutarResta} = useRestarQuery() 
 
     const sumar = async () => {
         try{

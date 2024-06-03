@@ -7,7 +7,7 @@ export const traerNumerosQuery = queryOptions({
     queryFn: () => mostrarNumero(),
 })
 
-export const sumarQuery = () => {
+export const useSumarQuery = () => {
     const queryClient = useQueryClient()
     return useMutation({
         mutationKey: ['sumar'],
@@ -20,7 +20,7 @@ export const sumarQuery = () => {
     })
 }
 
-export const restarQuery = () => {
+export const useRestarQuery = () => {
     const queryClient = useQueryClient()
     return useMutation({
         mutationKey: ['restar'],
