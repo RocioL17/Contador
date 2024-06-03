@@ -32,7 +32,7 @@ export function Contador() {
 
     return (
         <>
-            <h1>Contador</h1>
+            <h1>Contador piiiii</h1>
             <h1>{numero}</h1> 
             <button onClick={sumar}>Sumar</button>
             <button onClick={restar}>Restar</button>
