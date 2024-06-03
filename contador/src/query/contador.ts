@@ -5,6 +5,7 @@ import { queryOptions, useMutation, useQueryClient } from "@tanstack/react-query
 export const traerNumerosQuery = queryOptions({
     queryKey: ['numero'],
     queryFn: () => mostrarNumero(),
+    staleTime: Infinity
 })
 
 export const useSumarQuery = () => {
