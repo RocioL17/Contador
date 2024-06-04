@@ -2,10 +2,11 @@
 import React from "react";
 import { useRestarQuery, useSumarQuery, traerNumerosQuery } from "@/query/contador"
 import { useQuery } from "@tanstack/react-query"
-import { incrementarNumero } from "@/servicio/contador";
+import { incrementarNumero, decrementarNumero } from "@/servicio/contador";
 
 export function Contador() {
-    const numero = useQuery(traerNumerosQuery).data?.numero ?? 0;
+    const {data, error} = useQuery(traerNumerosQuery);
+    console.log(data);
 
     const {mutate: mutarSuma} = useSumarQuery()
     const {mutate: mutarResta} = useRestarQuery() 
@@ -15,6 +16,8 @@ export function Contador() {
             await mutarSuma(); //mutar, cambiar la base de datos
             console.log('Mutación');
             console.log('exito')
+            console.log(error);
+            console.log(data);
         }catch(error){
             console.error('error');
         }
@@ -33,7 +36,7 @@ export function Contador() {
     return (
         <>
             <h1>Contador</h1>
-            <h1>{numero}</h1> 
+            <h1>{data?.numero}</h1> 
             <button onClick={sumar}>Sumar</button>
             <button onClick={restar}>Restar</button>
         </>

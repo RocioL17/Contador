@@ -3,6 +3,8 @@ import { Contador } from "@/components/contador";
 import { traerNumerosQuery } from "@/query/contador";
 import { mostrarNumero } from "@/servicio/contador";
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const queryClient = new QueryClient()
 
@@ -10,6 +12,7 @@ export default async function Home() {
     queryKey: traerNumerosQuery.queryKey,
     queryFn: mostrarNumero
   })
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
